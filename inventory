@@ -1,0 +1,22 @@
+ubuntu1 ansible_ssh_host=10.0.0.8
+ubuntu2 ansible_ssh_host=10.0.0.11
+#ubuntu3 ansible_ssh_host=10.0.0.17
+#centos1 ansible_ssh_host=10.0.0.10 ansible_ssh_user=packt ansible_ssh_pass=password
+#centos2 ansible_ssh_host=10.0.0.15 ansible_ssh_user=root ansible_ssh_pass=password
+
+[ubuntu]
+ubuntu1
+ubuntu2
+
+[centos]
+centos1 
+#centos2
+
+[datacenter:children]
+centos
+ubuntu
+
+[datacenter:vars]
+ansible_ssh_user=packt
+ansible_ssh_pass=password
+ansible_become_pass=password
